@@ -1,0 +1,1 @@
+python get_funshion_install_path.py
