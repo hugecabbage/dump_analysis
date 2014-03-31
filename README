@@ -1,0 +1,13 @@
+崩溃分析文档
+1.获取ftp://192.168.1.90/log/yesterday文件夹下的版本号列表，记录到dir_list_tmp.ini文件中。
+	对应bat文件：file_list.bat
+	对应python文件：file_list.py：其中days=1表示时间间隔为1天，即取昨天的文件夹下的版本列表，可以根据需要修改。
+2. dump_symchk.bat
+	下载符号表到指定的路径
+3. ftp_dump.bat ${version}
+	执行ftp_dump.py：其中days=1表示时间间隔为1天，即取昨天的文件夹下的版本列表，可以根据需要修改，去下载之前的dump。
+4. dump_cdb.bat
+	对应每个版本的崩溃文件，解压、根据符号表分析dmp文件，生成对应的txt文件。
+5.设置source_file、dest_file的路径及格式
+6.使用dump_classified_stats_redmine.awk分析source_file文件，结果存入dest_file。
+7.将生成的结果转码，压缩崩溃位置分析的结果，发送邮件。
